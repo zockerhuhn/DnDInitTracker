@@ -1,6 +1,8 @@
 # Echo client program
 import socket
 
+tracker:list = []
+
 class creature:
     def __init__(self, name, type, ac:int, hp:int, maxhp:int):
         self.name = name
@@ -19,4 +21,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.sendall(b'Connection established')
     while True:
         data = s.recv(1024)
-        print('Received', repr(data))
+        #print('Received', repr(data))
+        tracker = []
+        for i in repr(data).split(";"):
+            tracker.append(i)
+        print(tracker)
