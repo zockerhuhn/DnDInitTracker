@@ -20,7 +20,7 @@ def RecieveLoop(s):
         recieved = repr(data).removeprefix("b")
         for i in recieved.split(";"):
             creatureInfo = i.split(",")
-            tracker.append(creature(name=creatureInfo[0],type=creatureInfo[1],initiative=int(creatureInfo[2]),hp=int(creatureInfo[3]),maxhp=int(creatureInfo[4])))
+            tracker.append(creature(player=bool(creatureInfo[0]),name=creatureInfo[1],tag=creatureInfo[2],initiative=creatureInfo[3],hp=int(creatureInfo[4]),maxhp=creatureInfo[5]))
         print(tracker)
 
 print("connecting...")
